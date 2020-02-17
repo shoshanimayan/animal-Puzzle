@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5f32f43321db74fb6982d90070d7b711
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SH Pinscher
+  fontNames:
+  - SH Pinscher
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 23edd549f47f340d6ad6f4a791fd6b86, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
