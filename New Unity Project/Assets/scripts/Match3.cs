@@ -430,10 +430,6 @@ public class Match3 : MonoBehaviour
                 AddPoints(ref connected, isConnected(connected[i], false));
         }
 
-        /* UNNESSASARY | REMOVE THIS!
-        if (connected.Count > 0)
-            connected.Add(p);
-        */
 
         return connected;
     }
@@ -502,7 +498,7 @@ public class Match3 : MonoBehaviour
 
     public Vector2 getPositionFromPoint(Point p)
     {
-        return new Vector2(32 + (64 * p.x), -32 - (64 * p.y));
+        return new Vector2(32 + (62 * p.x), -32 - (62 * p.y));
     }
 }
 
