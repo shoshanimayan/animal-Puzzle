@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MovePieces : MonoBehaviour
 {
+    /// <summary>
+    /// script for handling movement based on mouse or finger position
+    /// </summary>
     public static MovePieces instance;
     Match3 game;
 
@@ -31,9 +34,9 @@ public class MovePieces : MonoBehaviour
 
             newIndex = Point.clone(moving.index);
             Point add = Point.zero;
-            if (dir.magnitude > 32) //If our mouse is 32 pixels away from the starting point of the mouse
+            if (dir.magnitude > 32) // if moved mouse or finger enough
             {
-                //make add either (1, 0) | (-1, 0) | (0, 1) | (0, -1) depending on the direction of the mouse point
+                //only move in 4 possible direction no diagnol
                 if (aDir.x > aDir.y)
                     add = (new Point((nDir.x > 0) ? 1 : -1, 0));
                 else if (aDir.y > aDir.x)
@@ -47,7 +50,7 @@ public class MovePieces : MonoBehaviour
             moving.MovePositionTo(pos);
         }
     }
-
+    //sets piece to be moved
     public void MovePiece(NodePiece piece)
     {
         if (moving != null) return;
@@ -55,10 +58,10 @@ public class MovePieces : MonoBehaviour
         mouseStart = Input.mousePosition;
     }
 
+    //drop the piece and reset it
     public void DropPiece()
     {
         if (moving == null) return;
-        Debug.Log("Dropped");
         if (!newIndex.Equals(moving.index))
             game.FlipPieces(moving.index, newIndex, true);
         else

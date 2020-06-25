@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// script for handling the killded piece
+/// </summary>
 public class KilledPiece : MonoBehaviour
 {
     public bool falling;
@@ -13,6 +15,7 @@ public class KilledPiece : MonoBehaviour
     RectTransform rect;
     Image img;
 
+    //generate killedpiece and through it
     public void Initialize(Sprite piece, Vector2 start)
     {
         falling = true;
@@ -27,7 +30,8 @@ public class KilledPiece : MonoBehaviour
         rect.anchoredPosition = start;
     }
 
-    // Update is called once per frame
+    // piece falls till reaches a certain point
+    //could probably be better optomized 
     void Update()
     {
         if (!falling) return;

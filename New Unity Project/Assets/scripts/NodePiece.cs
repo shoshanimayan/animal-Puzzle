@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+/// <summary>
+/// class for the handling of the actual board pieces, the way they look and behave
+/// </summary>
 public class NodePiece : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public int value;
     public Point index;
 
-    [HideInInspector]
     public Vector2 pos;
-    [HideInInspector]
     public RectTransform rect;
     bool updating;
     Image img;

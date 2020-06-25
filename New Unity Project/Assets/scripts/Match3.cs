@@ -5,6 +5,11 @@ using TMPro;
 
 public class Match3 : MonoBehaviour
 {
+    /// <summary>
+    /// class for main game handling
+    /// score/timer handling
+    /// board and kill handling
+    /// </summary>
     public ArrayLayout boardLayout;
     //ui
     [Header("UI Elements")]
@@ -59,7 +64,7 @@ public class Match3 : MonoBehaviour
             resultBoard.transform.gameObject.SetActive(false);
         }
         else
-            score.text = ((int)targetTime).ToString();
+            score.text = 0.ToString();
 
     }
 
@@ -247,8 +252,6 @@ public class Match3 : MonoBehaviour
         {
             timer = false;
             resultBoard.gameObject.SetActive(true);
-            //gameBoard.gameObject.GetComponent<Image>().gameObject.;
-            //scoreBoard.gameObject.GetComponent<CanvasRenderer>().enabled = false;
             result.text = "Total Time: "+((int)totalTime).ToString();
             Debug.Log("game over");
         }
@@ -363,7 +366,7 @@ public class Match3 : MonoBehaviour
             Point.left
         };
 
-        foreach (Point dir in directions) //Checking if there is 2 or more same shapes in the directions
+        foreach (Point dir in directions) 
         {
             List<Point> line = new List<Point>();
 
@@ -378,17 +381,17 @@ public class Match3 : MonoBehaviour
                 }
             }
 
-            if (same > 1) //If there are more than 1 of the same shape in the direction then we know it is a match
-                AddPoints(ref connected, line); //Add these points to the overarching connected list
+            if (same > 1) 
+                AddPoints(ref connected, line); 
         }
 
-        for (int i = 0; i < 2; i++) //Checking if we are in the middle of two of the same shapes
+        for (int i = 0; i < 2; i++) 
         {
             List<Point> line = new List<Point>();
 
             int same = 0;
             Point[] check = { Point.add(p, directions[i]), Point.add(p, directions[i + 2]) };
-            foreach (Point next in check) //Check both sides of the piece, if they are the same value, add them to the list
+            foreach (Point next in check)
             {
                 if (getValueAtPoint(next) == val)
                 {
@@ -401,7 +404,7 @@ public class Match3 : MonoBehaviour
                 AddPoints(ref connected, line);
         }
 
-        for (int i = 0; i < 4; i++) //Check for a 2x2
+        for (int i = 0; i < 4; i++) 
         {
             List<Point> square = new List<Point>();
 
@@ -411,7 +414,7 @@ public class Match3 : MonoBehaviour
                 next -= 4;
 
             Point[] check = { Point.add(p, directions[i]), Point.add(p, directions[next]), Point.add(p, Point.add(directions[i], directions[next])) };
-            foreach (Point pnt in check) //Check all sides of the piece, if they are the same value, add them to the list
+            foreach (Point pnt in check) 
             {
                 if (getValueAtPoint(pnt) == val)
                 {
@@ -424,7 +427,7 @@ public class Match3 : MonoBehaviour
                 AddPoints(ref connected, square);
         }
 
-        if (main) //Checks for other matches along the current match
+        if (main) 
         {
             for (int i = 0; i < connected.Count; i++)
                 AddPoints(ref connected, isConnected(connected[i], false));
@@ -505,7 +508,7 @@ public class Match3 : MonoBehaviour
 [System.Serializable]
 public class Node
 {
-    public int value; //0 = blank, 1 = cube, 2 = sphere, 3 = cylinder, 4 = pryamid, 5 = diamond, -1 = hole
+    public int value; 
     public Point index;
     NodePiece piece;
 

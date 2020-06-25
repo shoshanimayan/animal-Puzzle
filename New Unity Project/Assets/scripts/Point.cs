@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// class for handling recording what point a piece is at
+/// </summary>
 [System.Serializable]
 public class Point
 {
@@ -25,7 +27,10 @@ public class Point
         x += p.x;
         y += p.y;
     }
-
+    public static Point clone(Point p)
+    {
+        return new Point(p.x, p.y);
+    }
     public Vector2 ToVector()
     {
         return new Vector2(x, y);
@@ -56,10 +61,7 @@ public class Point
         return new Point(p.x + o.x, p.y + o.y);
     }
 
-    public static Point clone(Point p)
-    {
-        return new Point(p.x, p.y);
-    }
+  
 
 
     public static Point zero
@@ -70,14 +72,6 @@ public class Point
     {
         get { return new Point(1, 1); }
     }
-    public static Point up
-    {
-        get { return new Point(0, 1); }
-    }
-    public static Point down
-    {
-        get { return new Point(0, -1); }
-    }
     public static Point right
     {
         get { return new Point(1, 0); }
@@ -86,4 +80,13 @@ public class Point
     {
         get { return new Point(-1, 0); }
     }
+    public static Point up
+    {
+        get { return new Point(0, 1); }
+    }
+    public static Point down
+    {
+        get { return new Point(0, -1); }
+    }
+  
 }

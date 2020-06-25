@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// script for ui effect to squash text or image
+/// </summary>
 
 public class sqwash : MonoBehaviour
 {
     
     float speed = 2f;
     float maxRotation = 30f;
-    // Start is called before the first frame update
 
 
     // Update is called once per frame

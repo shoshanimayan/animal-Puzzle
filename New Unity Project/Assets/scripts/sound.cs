@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+/// <summary>
+/// script for managing audio effects for the game board
+/// and handling the ui button for muting auto and turning it back on
+/// </summary>
 public class sound : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public Image mainImage;
@@ -11,7 +14,9 @@ public class sound : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public Sprite on;
     private bool playing;
     private AudioSource AS;
-    public void OnPointerDown(PointerEventData eventData)
+
+    //turn audio on or off
+    public void OnPointerDown(PointerEventData eventData) 
     {
         if (playing)
         {
@@ -25,6 +30,7 @@ public class sound : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
+    //change button ui image
     public void OnPointerUp(PointerEventData eventData)
     {
 
@@ -35,16 +41,11 @@ public class sound : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         AS = GameObject.Find("Audio Source").GetComponent<AudioSource>();
         playing = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

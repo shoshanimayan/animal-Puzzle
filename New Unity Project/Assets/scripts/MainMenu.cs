@@ -5,7 +5,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
-
+/// <summary>
+/// scrip for main menu button interactions
+/// choose endless or timed mode 
+/// </summary>
 public class MainMenu : MonoBehaviour, IPointerDownHandler
 {
     public enum button {endless,timed }
